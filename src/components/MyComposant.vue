@@ -4,6 +4,7 @@
   <p>Le nom de l'instance est {{ name }}</p>
   <p v-html="message"></p> -->
   <p>{{ calc(2, 3)}}</p>
+  <p>{{ func() }}</p>
 </template>
 
 <script>
@@ -19,6 +20,9 @@
     methods: {
         calc(a, b) {
             return a * b;
+        },
+        func() {
+            return this.name + this.nb;
         }
     }
   }
