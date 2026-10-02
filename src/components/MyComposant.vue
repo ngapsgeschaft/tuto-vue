@@ -6,7 +6,7 @@
   <p>{{ calc(2, 3)}}</p>
   <p>{{ func() }}</p>
   <a v-bind:href="UrlGoogle" target="_blank">Accéder à Google</a>
-  <img v-bind:src="UrlImage" alt="" />
+  <img :src="UrlImage" alt="" />
 </template>
 
 <script>
