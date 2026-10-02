@@ -8,7 +8,7 @@
   <a v-bind:href="UrlGoogle" target="_blank">Accéder à Google</a>
   <img :src="UrlImage" alt="" /> -->
   <p>Compteur: {{ compteur }}</p>
-  <button @click="plus">+</button>
+  <button v-on:click="plus">+</button>
   <button @click="moins">-</button>
 </template>
 
