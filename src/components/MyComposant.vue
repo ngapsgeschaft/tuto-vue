@@ -1,6 +1,6 @@
 <template>
   <h2>Coucou depuis mon composant!</h2>
-  <p>{{ str }}</p>
+  <p>{{ str.toUpperCase() }}</p>
   <p>Le nom de l'instance est {{ name }}</p>
   <p v-html="message"></p>
 </template>
