@@ -14,6 +14,11 @@
   <div @:click="func">
     <button @:click.stop="func">Cliquer ici (stop)</button>
   </div>
+  <form @submit.prevent="onSubmit">
+    <label for="txt">Texte</label>
+    <input type="text" id="txt">
+    <button>Envoyer</button>
+  </form>
 </template>
 
 <script>
@@ -44,6 +49,10 @@
         } */
       func() {
         console.log('Hello World')
+      },
+      onSubmit() {
+        console.log('Formulaire soumis');
+        
       }
     }
   }
