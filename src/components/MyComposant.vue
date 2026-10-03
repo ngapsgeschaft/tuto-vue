@@ -11,6 +11,9 @@
   <button v-on:click="plus">+</button>
   <button @click="moins">-</button> -->
   <button @:click.once="func">Cliquer ici</button>
+  <div @:click="func">
+    <button @:click.stop="func">Cliquer ici (stop)</button>
+  </div>
 </template>
 
 <script>
