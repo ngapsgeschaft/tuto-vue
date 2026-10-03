@@ -7,22 +7,23 @@
   <p>{{ func() }}</p>
   <a v-bind:href="UrlGoogle" target="_blank">Accéder à Google</a>
   <img :src="UrlImage" alt="" /> -->
-  <p>Compteur: {{ compteur }}</p>
+  <!-- <p>Compteur: {{ compteur }}</p>
   <button v-on:click="plus">+</button>
-  <button @click="moins">-</button>
+  <button @click="moins">-</button> -->
+  <button @:click.once="func">Cliquer ici</button>
 </template>
 
 <script>
   export default {
     data() {
         return {
-            name: "MyInstance",
+           /*  name: "MyInstance", */
            /*  str: "Je suis le str de MyInstance",
             message: "<strong>Je suis un message fort</strong>" */
            /*  nb: 7,
             UrlGoogle: "https://www.google.com",
             UrlImage: "https://picsum.photos/200/300" */
-            compteur: 0,
+            /* compteur: 0, */
         }
     },
     methods: {
@@ -32,12 +33,15 @@
         func() {
             return this.name + this.nb;
         } */
-        plus() {
+        /* plus() {
           this.compteur++;
         },
         moins() {
             this.compteur--;
-        }
+        } */
+      func() {
+        console.log('Hello World')
+      }
     }
   }
 </script>
