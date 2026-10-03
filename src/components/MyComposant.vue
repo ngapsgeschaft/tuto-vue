@@ -10,7 +10,7 @@
   <!-- <p>Compteur: {{ compteur }}</p>
   <button v-on:click="plus">+</button>
   <button @click="moins">-</button> -->
-  <button @:click.once="func">Cliquer ici</button>
+  <!-- <button @:click.once="func">Cliquer ici</button>
   <div @:click="func">
     <button @:click.stop="func">Cliquer ici (stop)</button>
   </div>
@@ -18,13 +18,16 @@
     <label for="txt">Texte</label>
     <input type="text" id="txt">
     <button>Envoyer</button>
-  </form>
+  </form> -->
+
+  <input type="text" id="text" v-model="valeur">
+  <p>{{ valeur }}</p>
 </template>
 
-<script>
-  export default {
-    data() {
-        return {
+<script setup lang="ts">
+  // export default {
+  //   data() {
+  //       return {
            /*  name: "MyInstance", */
            /*  str: "Je suis le str de MyInstance",
             message: "<strong>Je suis un message fort</strong>" */
@@ -32,9 +35,9 @@
             UrlGoogle: "https://www.google.com",
             UrlImage: "https://picsum.photos/200/300" */
             /* compteur: 0, */
-        }
-    },
-    methods: {
+    //     }
+    // },
+    // methods: {
         /* calc(a, b) {
             return a * b;
         },
@@ -47,15 +50,18 @@
         moins() {
             this.compteur--;
         } */
-      func() {
+     /*  func() {
         console.log('Hello World')
       },
       onSubmit() {
         console.log('Formulaire soumis');
-        
-      }
-    }
-  }
+      } */
+  //   }
+  // }
+
+  import {ref} from "vue";
+
+  const valeur = ref('');
 </script>
 
 <style>
