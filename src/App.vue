@@ -1,11 +1,11 @@
-<script setup lang="ts">
+<script>
 import MyComposant from './components/MyComposant.vue';
 
 </script>
 
 <template>
   <h1>Hello, World!</h1>
-  <MyComposant />
+  <my-composant></my-composant>
 </template>
 
 <style scoped>

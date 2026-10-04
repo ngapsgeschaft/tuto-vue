@@ -20,11 +20,13 @@
     <button>Envoyer</button>
   </form> -->
 
-  <input type="text" id="text" v-model="valeur">
-  <p>{{ valeur }}</p>
+  <!-- <input type="text" id="text" v-model="valeur">
+  <p>{{ valeur }}</p> -->
+
+  <h2>Coucou depuis le composant</h2>
 </template>
 
-<script setup lang="ts">
+<script>
   // export default {
   //   data() {
   //       return {
@@ -59,9 +61,17 @@
   //   }
   // }
 
-  import {ref} from "vue";
+  /* import {ref} from "vue";
 
-  const valeur = ref('');
+  const valeur = ref(''); */
+  
+  export default {
+    methods: {
+      someFunc() {
+        alert('Fonction du composant enfant appelée');
+      }
+    }
+  }
 </script>
 
 <style>
