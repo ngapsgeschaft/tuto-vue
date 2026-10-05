@@ -38,6 +38,7 @@
     <hr>
 
     <p>Methode: {{ statusMethod() }}</p>
+    <p>Status computed: {{ statusComputed }}</p>
   </div>
   
 </template>
@@ -97,6 +98,11 @@
     },
     methods: {
       statusMethod() {
+        return this.compteurA > 10 ? 'Supérieur à 10': 'Inférieur à 10';
+      }
+    },
+    computed: {
+      statusComputed() {
         return this.compteurA > 10 ? 'Supérieur à 10': 'Inférieur à 10';
       }
     }
