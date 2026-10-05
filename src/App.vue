@@ -1,4 +1,4 @@
-<script>
+<script setup>
 import MyComposant from './components/MyComposant.vue';
 
 </script>
