@@ -22,8 +22,24 @@
 
   <!-- <input type="text" id="text" v-model="valeur">
   <p>{{ valeur }}</p> -->
+  <div>
+    <h2>Composant enfant</h2>
 
-  <h2>Coucou depuis le composant</h2>
+    <button v-on:click="compteurA++">+</button>
+    <button v-on:click="compteurA--">-</button>
+    <p>Valeur compteur A : {{ compteurA }}</p>
+
+    <hr>
+
+    <button v-on:click="compteurB++">+</button>
+    <button v-on:click="compteurB--">-</button>
+    <p>Valeur compteur B : {{ compteurB }}</p>
+
+    <hr>
+
+    <p>Methode: {{ statusMethod() }}</p>
+  </div>
+  
 </template>
 
 <script>
@@ -65,10 +81,23 @@
 
   const valeur = ref(''); */
   
-  export default {
+  /* export default {
     methods: {
       someFunc() {
         alert('Fonction du composant enfant appelée');
+      }
+    }
+  } */
+  export default {
+    data () {
+      return {
+        compteurA: 0,
+        compteurB: 0
+      }
+    },
+    methods: {
+      statusMethod() {
+        return this.compteurA > 10 ? 'Supérieur à 10': 'Inférieur à 10';
       }
     }
   }
