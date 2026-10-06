@@ -42,6 +42,7 @@
   </div> -->
   <div class="box"></div>
   <div v-bind:style="inlineStyle">Ce texte a du CSS inline.</div>
+  <div class="box-style"></div>
 </template>
 
 <script>
