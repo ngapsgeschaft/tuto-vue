@@ -43,6 +43,7 @@
   <div class="box"></div>
   <div v-bind:style="inlineStyle">Ce texte a du CSS inline.</div>
   <div class="box-style"></div>
+  <div class="box-style-2"></div>
 </template>
 
 <script>
@@ -128,10 +129,10 @@
   }
 </script>
 
-<style>
+<style src="../assets/styles/mystyle2.css">
 .box {
   width: 200px;
   height: 200px;
-  background-color: salmon;
+  background-color: green;
 }
 </style>
