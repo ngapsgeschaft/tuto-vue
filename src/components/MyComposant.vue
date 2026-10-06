@@ -22,7 +22,7 @@
 
   <!-- <input type="text" id="text" v-model="valeur">
   <p>{{ valeur }}</p> -->
-  <div>
+  <!-- <div>
     <h2>Composant enfant</h2>
 
     <button v-on:click="compteurA++">+</button>
@@ -39,8 +39,8 @@
 
     <p>Methode: {{ statusMethod() }}</p>
     <p>Status computed: {{ statusComputed }}</p>
-  </div>
-  
+  </div> -->
+  <div class="box"></div>
 </template>
 
 <script>
@@ -89,7 +89,7 @@
       }
     }
   } */
-  export default {
+  /* export default {
     data () {
       return {
         compteurA: 0,
@@ -112,8 +112,13 @@
         
       }
     }
-  }
+  } */
 </script>
 
 <style>
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: salmon;
+}
 </style>
