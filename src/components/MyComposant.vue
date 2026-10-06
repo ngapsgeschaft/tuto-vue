@@ -40,10 +40,12 @@
     <p>Methode: {{ statusMethod() }}</p>
     <p>Status computed: {{ statusComputed }}</p>
   </div> -->
-  <div class="box"></div>
+  <!-- <div class="box"></div>
   <div v-bind:style="inlineStyle">Ce texte a du CSS inline.</div>
   <div class="box-style"></div>
-  <div class="box-style-2"></div>
+  <div class="box-style-2"></div> -->
+
+  <p class="text-blue-500">Hello</p>
 </template>
 
 <script>
