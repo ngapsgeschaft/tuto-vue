@@ -105,6 +105,12 @@
       statusComputed() {
         return this.compteurA > 10 ? 'Supérieur à 10': 'Inférieur à 10';
       }
+    },
+    watch: {
+      compteurA(newValue, oldValue) {
+        console.log(`CompteurA incrémenté: actuel ${newValue}; précédent: ${oldValue}`);
+        
+      }
     }
   }
 </script>
