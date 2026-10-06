@@ -41,6 +41,7 @@
     <p>Status computed: {{ statusComputed }}</p>
   </div> -->
   <div class="box"></div>
+  <div v-bind:style="inlineStyle">Ce texte a du CSS inline.</div>
 </template>
 
 <script>
@@ -113,6 +114,17 @@
       }
     }
   } */
+
+  export default {
+    data() {
+      return {
+        inlineStyle: {
+          color: "yellow",
+          fontSize: "25px",
+        }
+      }
+    }
+  }
 </script>
 
 <style>
