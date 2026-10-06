@@ -45,7 +45,7 @@
   <div class="box-style"></div>
   <div class="box-style-2"></div> -->
 
-  <p class="text-blue-500">Hello</p>
+  <p class="text-blue-500 bg-green-100 py-2 px-4">Hello</p>
 </template>
 
 <script>
