@@ -129,7 +129,7 @@
   }
 </script>
 
-<style src="../assets/styles/mystyle2.css">
+<style scoped src="../assets/styles/mystyle2.css">
 .box {
   width: 200px;
   height: 200px;
