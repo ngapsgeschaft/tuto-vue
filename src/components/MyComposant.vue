@@ -44,8 +44,17 @@
   <div v-bind:style="inlineStyle">Ce texte a du CSS inline.</div>
   <div class="box-style"></div>
   <div class="box-style-2"></div> -->
+<!-- 
+  <p class="text-blue-500 bg-green-100 py-2 px-4">Hello</p> -->
 
-  <p class="text-blue-500 bg-green-100 py-2 px-4">Hello</p>
+  <!-- Chapitre 03 - Les conditions -->
+  <h1 v-if="status === 'success'">Succès</h1>
+  <h1 v-else-if="status === 'warning'">Avertissement</h1>
+  <h1 v-else="status === 'error'">Erreur</h1>
+
+  <button v-on:click="changeStatus('success')">Success</button>
+  <button v-on:click="changeStatus('warning')">Warning</button>
+  <button v-on:click="changeStatus('error')">Error</button>
 </template>
 
 <script>
@@ -119,7 +128,7 @@
     }
   } */
 
-  export default {
+  /* export default {
     data() {
       return {
         inlineStyle: {
@@ -128,13 +137,29 @@
         }
       }
     }
+  } */
+  
+  // Chapitre 03 - Les conditions
+  export default {
+    data () {
+      return {
+        status: 'error',
+      }
+    },
+    methods: {
+      changeStatus(newStatus) {
+        this.status = newStatus;
+      }
+    }
   }
 </script>
 
-<style scoped src="../assets/styles/mystyle2.css">
+<!-- <style scoped src="../assets/styles/mystyle2.css">
 .box {
   width: 200px;
   height: 200px;
   background-color: green;
 }
+</style> -->
+<style>
 </style>
