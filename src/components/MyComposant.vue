@@ -47,14 +47,41 @@
 <!-- 
   <p class="text-blue-500 bg-green-100 py-2 px-4">Hello</p> -->
 
-  <!-- Chapitre 03 - Les conditions -->
+  <!-- Chapitre 03 - Les conditions
   <h1 v-if="status === 'success'">Succès</h1>
   <h1 v-else-if="status === 'warning'">Avertissement</h1>
   <h1 v-else="status === 'error'">Erreur</h1>
 
   <button v-on:click="changeStatus('success')">Success</button>
   <button v-on:click="changeStatus('warning')">Warning</button>
-  <button v-on:click="changeStatus('error')">Error</button>
+  <button v-on:click="changeStatus('error')">Error</button> -->
+
+  <!-- Chapitre 03 - La boucle v-for -->
+  <h2>Liste des fruits</h2>
+  <ul>
+    <li v-for="(fruit, index) in fruits" :key="index">
+      {{ fruit }}
+    </li>
+  </ul>
+  
+  <h2>Liste des utilisateurs</h2>
+  <ul>
+    <li v-for="(user, index) in users" :key="index">
+      {{ user.name }} - {{ user.age }}
+    </li>
+  </ul>
+
+  <h2>Liste des équipes</h2>
+  <ul>
+    <li v-for="(team, teamIndex) in teams" :key="teamIndex">
+      <span class="text-red-600">{{ team.name }}</span>
+      <ul>
+        <li v-for="(member, memberIndex) in team.members" :key="memberIndex">
+          {{ member }}
+        </li>
+      </ul>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -139,7 +166,7 @@
     }
   } */
   
-  // Chapitre 03 - Les conditions
+  /* // Chapitre 03 - Les conditions
   export default {
     data () {
       return {
@@ -149,6 +176,24 @@
     methods: {
       changeStatus(newStatus) {
         this.status = newStatus;
+      }
+    }
+  } */
+
+  export default {
+    data () {
+      return {
+        fruits: ['Pomme', 'Banane', 'Orange', 'Fraise'],
+        users: [
+          { id: 1, name: 'Alice', age: 25 },
+          { id: 2, name: 'Bob', age: 30 },
+          { id: 3, name: 'Charlie', age: 35 }
+        ],
+        teams: [
+          { id: 1, name: 'Team A', members: ['Alice', 'Bob'] },
+          { id: 2, name: 'Team B', members: ['Charlie', 'David'] },
+          { id: 3, name: 'Team C', members: ['Eve', 'Frank'] }
+        ]
       }
     }
   }
