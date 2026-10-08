@@ -82,6 +82,8 @@
       </ul>
     </li>
   </ul> -->
+
+  <user-card v-for="(user, index) in users" :key="index" :user="user"/>
 </template>
 
 <script>
