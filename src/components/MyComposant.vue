@@ -87,10 +87,15 @@
   <h2>{{ title || "Titre depuis le parent"}}</h2>
   <p>{{ description || "Description depuis le parent" }}</p>
   <user-card v-on:update-title="updateTitle" @update-description="updateDescription"/>
+
+  <UserSlot title="Mon titre depuis le parent">
+    <p>Contenu du slot depuis le parent</p>
+  </UserSlot>
 </template>
 
-<script>
+<script setup>
 import UserCard from './UserCard.vue';
+import UserSlot from './UserSlot.vue';
 
   // export default {
   //   data() {
@@ -206,32 +211,32 @@ import UserCard from './UserCard.vue';
     }
   } */
 
-  export default {
-    name: 'MyComposant',
-    components: {
-      UserCard
-    },
-    data() {
-      return {
-        /* users: [
-          { id: 1, name: 'Alice', age: 25 },
-          { id: 2, name: 'Bob', age: 30 },
-          { id: 3, name: 'Charlie', age: 35 }
-        ] */
-        title: "",
-        description: ""
-      }
-    },
-    methods: {
-      updateTitle(newTitle) {
-        this.title = newTitle;
-      },
-      updateDescription(newDescription) {
-        this.description = newDescription;
-      }
-    }
-  }
-</script>
+//   export default {
+//     name: 'MyComposant',
+//     components: {
+//       UserCard
+//     },
+//     data() {
+//       return {
+//         /* users: [
+//           { id: 1, name: 'Alice', age: 25 },
+//           { id: 2, name: 'Bob', age: 30 },
+//           { id: 3, name: 'Charlie', age: 35 }
+//         ] */
+//         title: "",
+//         description: ""
+//       }
+//     },
+//     methods: {
+//       updateTitle(newTitle) {
+//         this.title = newTitle;
+//       },
+//       updateDescription(newDescription) {
+//         this.description = newDescription;
+//       }
+//     }
+//   }
+// </script>
 
 <!-- <style scoped src="../assets/styles/mystyle2.css">
 .box {
