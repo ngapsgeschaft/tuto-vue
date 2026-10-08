@@ -16,7 +16,7 @@
 
 </script>
 
-<style>
+<style scoped>
   .user-card {
     border: 1px solid #ebe5e5;
     padding: 10px;
