@@ -56,7 +56,7 @@
   <button v-on:click="changeStatus('warning')">Warning</button>
   <button v-on:click="changeStatus('error')">Error</button> -->
 
-  <!-- Chapitre 03 - La boucle v-for -->
+  <!-- Chapitre 03 - La boucle v-for
   <h2>Liste des fruits</h2>
   <ul>
     <li v-for="(fruit, index) in fruits" :key="index">
@@ -81,10 +81,12 @@
         </li>
       </ul>
     </li>
-  </ul>
+  </ul> -->
 </template>
 
 <script>
+import UserCard from './UserCard.vue';
+
   // export default {
   //   data() {
   //       return {
@@ -180,6 +182,7 @@
     }
   } */
 
+  /* // Chapitre 03 - La boucle v-for
   export default {
     data () {
       return {
@@ -193,6 +196,22 @@
           { id: 1, name: 'Team A', members: ['Alice', 'Bob'] },
           { id: 2, name: 'Team B', members: ['Charlie', 'David'] },
           { id: 3, name: 'Team C', members: ['Eve', 'Frank'] }
+        ]
+      }
+    }
+  } */
+
+  export default {
+    name: 'MyComposant',
+    components: {
+      UserCard
+    },
+    data() {
+      return {
+        users: [
+          { id: 1, name: 'Alice', age: 25 },
+          { id: 2, name: 'Bob', age: 30 },
+          { id: 3, name: 'Charlie', age: 35 }
         ]
       }
     }
