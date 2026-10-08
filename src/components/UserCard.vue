@@ -1,7 +1,10 @@
 <template>
     <div class="user-card">
-        <h3>{{ user.name }}</h3>
-        <p>Age: {{ user.age }}</p>
+        <!-- <h3>{{ user.name }}</h3>
+        <p>Age: {{ user.age }}</p> -->
+        <input v-on:input="dataToParent" v-model="title" placeholder="Entrez un titre" />
+        <input v-on:input="dataToParent" v-model="description" placeholder="Entrez une description" />
+        <!-- <button v-on:click="dataToParent">Envoyer au parent</button> -->
     </div>
 </template>
 
@@ -9,8 +12,20 @@
 
   export default {
     name: "UserCard",
-    props: {
+    /* props: {
       user: Object
+    } */
+    data() {
+        return {
+            title: "",
+            description: ""
+        }
+    },
+    methods: {
+        dataToParent() {
+            this.$emit('update-title', this.title);
+            this.$emit('update-description', this.description);
+        }
     }
   }
 
