@@ -83,7 +83,10 @@
     </li>
   </ul> -->
 
-  <user-card v-for="(user, index) in users" :key="index" :user="user"/>
+  <!-- <user-card v-for="(user, index) in users" :key="index" :user="user"/> -->
+  <h2>{{ title || "Titre depuis le parent"}}</h2>
+  <p>{{ description || "Description depuis le parent" }}</p>
+  <user-card v-on:update-title="updateTitle" @update-description="updateDescription"/>
 </template>
 
 <script>
@@ -210,11 +213,21 @@ import UserCard from './UserCard.vue';
     },
     data() {
       return {
-        users: [
+        /* users: [
           { id: 1, name: 'Alice', age: 25 },
           { id: 2, name: 'Bob', age: 30 },
           { id: 3, name: 'Charlie', age: 35 }
-        ]
+        ] */
+        title: "",
+        description: ""
+      }
+    },
+    methods: {
+      updateTitle(newTitle) {
+        this.title = newTitle;
+      },
+      updateDescription(newDescription) {
+        this.description = newDescription;
       }
     }
   }
