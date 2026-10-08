@@ -15,3 +15,12 @@
   }
 
 </script>
+
+<style>
+  .user-card {
+    border: 1px solid #ebe5e5;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(239, 237, 231, 0.1);
+  }
+</style>
