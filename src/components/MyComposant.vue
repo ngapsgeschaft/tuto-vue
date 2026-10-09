@@ -4,11 +4,12 @@
 <hr>
 <p>{{ state.message }}</p>
 <button v-on:click="updateMessage">Changer ce message</button>
+<p>{{ doubleCount }}</p>
 </template>
 
 <script setup>
 
-import { ref, reactive } from 'vue';
+import { ref, reactive, computed } from 'vue';
 
 const count = ref(0);
 
@@ -23,6 +24,8 @@ const state = reactive({
 const updateMessage = () => {
   state.message = "Bonjour tout le monde";
 }
+
+const doubleCount = computed(() => count.value * 2)
 </script>
 
 <style>
