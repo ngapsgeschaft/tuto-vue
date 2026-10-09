@@ -5,11 +5,16 @@
 <p>{{ state.message }}</p>
 <button v-on:click="updateMessage">Changer ce message</button>
 <p>{{ doubleCount }}</p>
+<hr>
+<UserSlot title="Mon Slot">
+  <p>Hello from parent</p>
+</UserSlot>
 </template>
 
 <script setup>
 
-import { ref, reactive, computed } from 'vue';
+import { ref, reactive, computed, provide, inject } from 'vue';
+import UserSlot from './UserSlot.vue';
 
 const count = ref(0);
 
@@ -26,6 +31,10 @@ const updateMessage = () => {
 }
 
 const doubleCount = computed(() => count.value * 2)
+
+provide("count", count);
+
+
 </script>
 
 <style>
