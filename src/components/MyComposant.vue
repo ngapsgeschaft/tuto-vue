@@ -1,41 +1,26 @@
 <template>
-  <h2>Liste des utilisateurs</h2>
-
-  <div v-if="loading">Chargement...</div>
-
-  <div v-if="error">Erreur: {{ error }}</div>
-
-  <ul v-if="users.length">
-    <li v-for="user in users" :key="user.id">
-      {{ user.name }}
-    </li>
-  </ul>
+  <button @click="toggleVisible">Toggle element</button>
+  <transition name="fade">
+    <p v-if="isVisible">je suis un element</p>
+  </transition>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import axios from 'axios';
+import { ref } from 'vue';
 
-const users = ref([]);
-const loading = ref(false)
-const error = ref(null)
+const isVisible = ref(false);
 
-const fetchUsers = async () => {
-  loading.value = true
-  error.value = null
-
-  try{
-    const response = await axios.get('https://jsonplaceholder.typicode.com/users')
-    users.value = response.data
-  } catch(e) {
-    error.value = e.message
-  } finally {
-    loading.value = false
-  }
+const toggleVisible = () => {
+  isVisible.value = !isVisible.value;
 }
-
-onMounted(fetchUsers)
 </script>
 
 <style>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1s ease;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
 </style>
