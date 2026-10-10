@@ -1,40 +1,40 @@
 <template>
-<p>{{ count }}</p>
-<button v-on:click="increment">+</button>
-<hr>
-<p>{{ state.message }}</p>
-<button v-on:click="updateMessage">Changer ce message</button>
-<p>{{ doubleCount }}</p>
-<hr>
-<UserSlot title="Mon Slot">
-  <p>Hello from parent</p>
-</UserSlot>
+  <h2>Liste des utilisateurs</h2>
+
+  <div v-if="loading">Chargement...</div>
+
+  <div v-if="error">Erreur: {{ error }}</div>
+
+  <ul v-if="users.length">
+    <li v-for="user in users" :key="user.id">
+      {{ user.name }}
+    </li>
+  </ul>
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
 
-import { ref, reactive, computed, provide, inject } from 'vue';
-import UserSlot from './UserSlot.vue';
+const users = ref([]);
+const loading = ref(false)
+const error = ref(null)
 
-const count = ref(0);
+const fetchUsers = async () => {
+  loading.value = true
+  error.value = null
 
-const increment = () => {
-  count.value++;
+  try{
+    const response = await axios.get('https://jsonplaceholder.typicode.com/users')
+    users.value = response.data
+  } catch(e) {
+    error.value = e.message
+  } finally {
+    loading.value = false
+  }
 }
 
-const state = reactive({
-  message: "Hello World"
-})
-
-const updateMessage = () => {
-  state.message = "Bonjour tout le monde";
-}
-
-const doubleCount = computed(() => count.value * 2)
-
-provide("count", count);
-
-
+onMounted(fetchUsers)
 </script>
 
 <style>
