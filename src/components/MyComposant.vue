@@ -1,46 +1,30 @@
 <template>
-  <button @click="toggleVisible">toggleElement</button>
+  <button v-for="tab in Object.keys(tabComponents)" :key="tab" @click="currentTab = tab" :class="{active: currentTab === tab}">
+    {{ tab }}
+  </button>
 
-  <transition
-    @before-enter="beforeEnter"
-    @enter="enter"
-    @after-enter="afterEnter"
-    @leave="leave">
-    <p v-if="isVisile">je suis visible</p>
-  </transition>
+  <keep-alive :max="2" :include="['Tab1', 'Tab2']" :exclude="[]">
+    <component :is="currentTabComponent"/>
+  </keep-alive>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import Tab1 from './Tab1.vue'
+import Tab2 from './Tab2.vue'
 
-const isVisile = ref(false)
+const currentTab = ref(Tab1)
 
-const toggleVisible = () => {
-  isVisile.value = !isVisile.value
+const tabComponents = {
+  Tab1,
+  Tab2
 }
 
-const beforeEnter = (el) => {
-  el.style.opacity = 0
-}
-
-const enter = (el, done) => {
-  el.offsetHeight
-  el.style.transition = "opacity 0.5s ease"
-  el.style.opacity = 1
-  done() // indique la fin de l'animation
-}
-
-const afterEnter = (el) => {
-  console.log("afterEnter");
-}
-
-const leave = (el, done) => {
-  el.offsetHeight
-  el.style.transition = "opacity 0.5s ease"
-  el.style.opacity = 0
-  done() // indique la fin de l'animation
-}
+const currentTabComponent = computed(() => tabComponents[currentTab.value])
 </script>
 
 <style>
+button.active {
+  background: crimson;
+}
 </style>
