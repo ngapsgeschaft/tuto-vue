@@ -1,58 +1,46 @@
 <template>
-  <button @click="addItem">Add Item</button>
-  <button @click="removeItem" :disabled="items.length === 0">Remove Item</button>
+  <button @click="toggleVisible">toggleElement</button>
 
-  <transition-group name="list" tag="ul">
-    <li v-for="item in items" :key="item" class="list-item">
-      {{ item }}
-    </li>
-  </transition-group>
+  <transition
+    @before-enter="beforeEnter"
+    @enter="enter"
+    @after-enter="afterEnter"
+    @leave="leave">
+    <p v-if="isVisile">je suis visible</p>
+  </transition>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
 
-const items = ref([])
+const isVisile = ref(false)
 
-let nextId = ref(1)
-
-const addItem = () => {
-  items.value.push(`Element ${nextId.value++}`)
+const toggleVisible = () => {
+  isVisile.value = !isVisile.value
 }
 
-const removeItem = () => {
-  items.value.pop()
+const beforeEnter = (el) => {
+  el.style.opacity = 0
+}
+
+const enter = (el, done) => {
+  el.offsetHeight
+  el.style.transition = "opacity 0.5s ease"
+  el.style.opacity = 1
+  done() // indique la fin de l'animation
+}
+
+const afterEnter = (el) => {
+  console.log("afterEnter");
+}
+
+const leave = (el, done) => {
+  el.offsetHeight
+  el.style.transition = "opacity 0.5s ease"
+  el.style.opacity = 0
+  done() // indique la fin de l'animation
 }
 </script>
 
 <style>
-button {
-  margin: 5px;
-  padding: 10px;
-  font-size: 16px;
-  cursor:pointer;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-.list-item {
-  background: crimson;
-  color: write;
-  padding: 10px;
-  margin: 5px;
-  border-radius: 5px;
-  transition: all 0.5s ease;
-}
-
-.list-enter-active, .list-leave-active {
-  transition: opacity 0.5s , transform .5s;
-}
-
-.list-enter-form, .list-leave-to {
-  opacity: 0;
-  transform: translateY(-20px);
-}
 </style>
